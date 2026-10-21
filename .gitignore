@@ -1,0 +1,38 @@
+# ── Pesi dei modelli (93 GB) — NON versionare. Ricreare con gli script di download.
+models/
+*.gguf
+
+# ── Ambiente Python (11 GB) — ricreare con requirements.txt
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.Python
+
+# ── Vector DB ChromaDB — rigenerabile da chunks.jsonl/articles.jsonl
+docs_sample/enciclica/chroma_db/
+
+# ── Cache allegati scaricati da import_cei_documenti.py — rigenerabile
+docs_sample/corpus/cei_documenti/raw/
+
+# ── Log e file temporanei
+*.log
+*.pid
+.DS_Store
+
+# ── Backup del PPTX (si tiene solo il file principale)
+pptx/*backup*.pptx
+pptx/*(*).pptx
+
+# ── PDF temporanei di export
+/tmp/*.pdf
+
+# ── Core dump e checkpoint di Jupyter
+core.*
+.ipynb_checkpoints/
+
+# ── Impostazioni locali di Claude Code
+.claude/
+
+# ── llama.cpp clonato da tools/build_apertus15.sh (si ricrea al commit fissato)
+tools/llama.cpp/

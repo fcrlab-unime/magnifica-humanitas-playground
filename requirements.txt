@@ -1,0 +1,30 @@
+# Magnifica Humanitas — playground LLM+RAG — dipendenze
+# Python 3.13 · versioni = quelle che girano in produzione (A100, driver 580).
+#
+# Installazione (o ./setup.sh install, che fa questo e controlla il resto):
+#   python3 -m venv venv && source venv/bin/activate
+#   pip install -r requirements.txt
+#
+# llama-cpp-python va compilato CON CUDA, altrimenti l'app gira sulla CPU senza
+# avvisare (il Playground parte lo stesso, ma una risposta ci mette minuti).
+# ./setup.sh llama-cuda lo fa; a mano:
+#   CMAKE_ARGS="-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=<cc senza punto, es. 80>" \
+#     pip install --force-reinstall --no-cache-dir --no-binary llama-cpp-python llama-cpp-python==0.3.32
+# Serve il toolkit CUDA 12.x (nvcc) per compilare; per eseguire bastano le
+# librerie nvidia/* che porta torch.
+
+# torch: in produzione c'e' la build cu128. Con un driver piu' recente (CUDA 13)
+# va bene anche quella di default di PyPI: si cambia solo la riga torch.
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.11.0+cu128
+
+# Inferenza LLM locale (GGUF)
+llama-cpp-python==0.3.32
+
+# RAG: embeddings + reranker + vector store
+sentence-transformers==5.5.1
+chromadb==1.5.9
+transformers==5.10.2
+
+# Web playground
+Flask==3.1.3

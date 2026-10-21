@@ -1,0 +1,8 @@
+# Solo per COSTRUIRE i GGUF di Apertus v1.5 (tools/build_apertus15.sh):
+# non servono per far girare il Playground. Si installano sopra requirements.txt.
+huggingface_hub==1.21.0
+hf_xet==1.5.1
+safetensors==0.8.0
+protobuf==7.35.1
+sentencepiece==0.2.2
+# convert_hf_to_gguf.py importa anche numpy e torch: gia' in requirements.txt.
