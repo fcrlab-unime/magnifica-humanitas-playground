@@ -45,8 +45,8 @@ Build one size, or both: the app offers whatever is in `models/gguf/`, and opens
 
 | | Build | File | GPU memory* |
 |---|---|---|---|
-| 8B (faster, less reliable) | `tools/build_apertus15.sh 8B` | 4.8 GB | ~13 GB |
-| 70B (more reliable, slower) | `tools/build_apertus15.sh 70B` | 41 GB | ~54 GB |
+| 8B (faster, less reliable) | `tools/build_apertus15.sh 8B` | 5.1 GB | ~13 GB |
+| 70B (more reliable, slower) | `tools/build_apertus15.sh 70B` | 43.7 GB | ~54 GB |
 
 \*Measured with the 16k context the app uses, including the search models (~5 GB).
 All layers are loaded on the GPU: if the model does not fit, loading fails
